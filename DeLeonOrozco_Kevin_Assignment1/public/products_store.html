@@ -1,0 +1,144 @@
+<script>
+    //Product1 
+    var product1 = {
+      model:"Spiderman",  
+      price: 40.00,  
+      image: "https://i.ebayimg.com/images/i/391963475481-0-1/s-l1000.jpg"
+    };
+            
+
+    //Product2
+    var product2 = {
+      model:"SSGSS Goku",  
+      price: 45.00,  
+      image: "https://cdn.shopify.com/s/files/1/1782/0745/products/500pxl1_dragon-ball-super-goku-kamehameha-funko-pop-vinyl-figure-popcultcha-oob.1561344610.1570584283s_large.jpg?v=1572421846"
+    };
+            
+
+    //Product3 
+    var product3 = {
+      model:"SSGSS Vegeta",  
+      price: 73.00,  
+      image: "https://cconnect.s3.amazonaws.com/wp-content/uploads/2019/12/Funko-Pop-Dragon-Ball-Z-Figures-713-Vegeta-Powering-Up-Metallic-Chase-Chalice-Collectibles-Exclusive.jpg"
+    };
+            
+
+    //Product4
+    var product4 = {
+      model:"Darth Vader",  
+      price: 10.00,  
+      image: "http://i.ebayimg.com/images/i/131178072220-0-1/s-l1000.jpg"
+    };
+            
+
+    //Product5
+    var product5 = {
+    model:"Ironman",  
+    price: 30.00,  
+    image: "http://marveltoynews.com/wp-content/uploads/2015/01/Funko-Iron-Man-Age-of-Ultron-POP-Vinyls-Figure.jpg"
+    };
+
+    //Product6
+    var product6 = {
+      model:"Darth Maul",  
+      price: 1804.00,  
+      image: "https://s3.thcdn.com/productimg/960/960/11357697-8244433739810840.jpg"
+    };
+
+    products = [product1,product2,product3,product4,product5,product6]
+</script>
+    <script>
+        /* Code taken from Lab 13 Ex 3c and from sample page from Assignment1*/
+    function isNonNegInt(q, return_errors = false) {
+        errors = []; // assume no errors at first
+        if(q == '') q =0; // handle blank inputs as if they are 0
+        if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); // Check if string is a number value, if not returns text in red color
+        else if (q < 0) errors.push('<font color="red">Negative value!</font>'); // Check if it is non-negative, if not returns text in red color 
+        else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Check that it is an integer, if not returns text in red color 
+        return return_errors ? errors : (errors.length == 0);
+    }
+
+    function checkQuantityTextbox(theTextbox) {
+        errs = isNonNegInt(theTextbox.value, true);
+        if (errs.length == 0) errs = ['You want:'];
+        if (theTextbox.value.trim() == '') errs = ['Quantity'];
+        document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
+    }
+
+    window.onload = function () {
+        let params = (new URL(document.location)).searchParams; // get the query string which has the form data
+        // form was submitted so check that quantities are valid then redirect to invoice if ok.
+        if (params.has('purchase_submit')) {
+            has_errors = false; // assume quantities are valid from the start
+            total_qty = 0; // need to check if something was selected so we will look if the total > 0
+            for (i = 0; i < products.length; i++) {
+                if (params.has(`quantity${i}`)) {
+                    a_qty = params.get(`quantity${i}`);
+                    // make textboxes sticky in case of invalid data
+                    product_selection_form[`quantity${i}`].value = a_qty;
+                    total_qty += a_qty; 
+                    if(!isNonNegInt(a_qty)) {
+                        has_errors = true; // invalid quantity
+                        checkQuantityTextbox(product_selection_form[`quantity${i}`]); // show where the error is
+                    }
+                }
+            }
+            // Now respond to errors or redirect to invoice if all is ok
+            if(has_errors) {
+                alert("Please enter only valid quantities!");
+            } else if(total_qty == 0) { // no quantity selections, just give a general alert
+                alert("Please select some quantities!");
+            } else { // all good to go!
+                window.location = `./invoice.html${document.location.search}`;
+                window.stop;
+            }
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pop Head Store</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+
+    <link href="phead-style.css" rel="stylesheet">
+    
+</head>
+
+<body>
+    <form name="product_selection_form" action="" method="GET">
+        <header>
+            <h1>The Ultimate Pop Head Store</h1>
+        </header>
+        <div>
+            <main>
+                <script>
+                    for (i = 0; i < products.length; i++) {
+                        document.write(`
+                            <section class="item">
+                                <h2>${products[i].model}</h2>
+                                <p>$${products[i].price}</p>
+                                <label id="quantity${i}_label"}">Quantity</label>
+                                <input type="text" placeholder="0" name="quantity${i}" 
+                                onkeyup="checkQuantityTextbox(this);">
+                                <img src="${products[i].image}">
+                            </section>
+                        `);
+                    }    
+                </script>
+            </main>
+        </div>
+        <footer>
+            <h1>
+                Choose from Heros to Villians
+            </h1>
+            <input type="submit" value="Purchase!" name="purchase_submit">
+        </footer>
+    </form>
+</body>
+
+</html>

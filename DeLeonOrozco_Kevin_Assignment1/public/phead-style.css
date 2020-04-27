@@ -1,0 +1,180 @@
+/*Code taken from Smartphone Products 3 and adjusted*/
+  html {
+  
+    font-family: 'Raleway', sans-serif;
+    background-color: lightblue;
+    font-size: 10px;
+    /*This sets the font and backgound color for whole webpage*/
+  }
+  
+  body {
+    width: 800px;
+    margin: 0 auto;
+  }
+  
+  
+  
+  h1, h2 {
+    
+    font-family: cursive;
+    margin: 0;
+    
+    text-align: center;
+  }
+  
+  
+  h1 {
+    font-size: 5rem;
+    background-size: 48px 48px;
+    background-blend-mode: lighten;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: orange;
+    text-align: right;
+    width: 160px;
+    position: absolute;
+    right: 4%;
+    z-index: 3000;
+    text-shadow: 2px 2px 1px blue;
+    line-height: 2rem;
+    padding-top: 0.3rem;
+    /*this adjusts the colors for the names of the products*/
+  }
+  
+  p {
+    font-size: 3rem;
+    font-family: fantasy;
+    /* p is equal to price, changes font of price */
+  }
+  
+
+  
+  
+  header, aside, main, footer {
+    padding: 50px;
+  }
+  
+  
+  aside {
+    border-right: 5px solid red;
+  }
+  
+  
+  body > div {
+    border: 5px solid white;
+    display: flex;
+  }
+  
+  
+  footer {
+    text-align: center;;
+  }
+  
+  footer h1 {
+    font-style: italic;
+    font-size: 3rem;
+  }
+  
+  aside {
+    flex: 3;
+  }
+  
+  main {
+    flex: 7;
+  }
+  
+  
+  /*  Form styling */
+  
+  
+  main {
+    display: normal;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+  
+  
+  aside {
+    display: flex;
+    align-items: stretch;
+    padding: 50px;
+  }
+  
+  aside div {
+    margin-bottom: 20px;
+  }
+  
+  
+  /* Styling the products */
+  
+  
+  section {
+    width: 100%;
+    margin: 5px;
+    background-color: grey;
+    position: relative;
+    height: 215px;
+  }
+  
+  section p {
+    color: black;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    bottom: -6px;
+    z-index: 2000;
+  }
+  
+  
+  .item {
+    background-size: 234px 24px;
+  }
+  
+  
+  .item img {
+      width: 300px;
+      height: 200px; 
+      
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      
+  }
+  
+  input {
+    background: orange;
+    box-shadow: inset 1px 1px 1px white;
+    color: black;
+    border: none;
+    padding: 5px;
+    width: 201.5px;
+  }
+  
+  section input {
+    color: blue;
+    background: rgb(240, 238, 238);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 1px orange;
+    position: absolute;
+    right: 10px;
+    bottom: 80px;
+    z-index: 2000;
+  }
+  section label {
+    color: white;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    right: 15px;
+    bottom:130px;
+    z-index: 2000;
+  }
