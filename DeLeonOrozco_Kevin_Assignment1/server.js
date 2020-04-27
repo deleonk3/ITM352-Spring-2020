@@ -1,10 +1,14 @@
-//Code taken from Lab 13 ex C 
-var express = require('express');
-var myParser = require("body-parser");
-var fs = require('fs');
+/*AUTHOR: Kevin De Leon Orozco
+Code taken from Lab 13 and invoice example taken from Assigment 1 workshop file and modified.
+Code displayed in server ensures that code is being run from both client and server side.
+Server is needed for clients to have access from webpage. Without server webiste is not accessible to public. */
+
+var express = require('express'); //needed to install express similar to Lab 13
+var myParser = require("body-parser"); //needed to install body-parser similar to Lab 13
+var fs = require('fs'); //Taken from Lab 13
 var products = require("./public/products.json"); //require products from this file 
 
-var app = express();
+var app = express(); //need to defien express in order for server to run 
 
 app.use(myParser.urlencoded({ extended: true }));
 
@@ -20,7 +24,7 @@ app.post("/invoice.html", function (request, response, next) {
       
     }
 
-    console.log(Date.now() + ': Purchase made from ip ' + request.ip + ' data: ' + JSON.stringify(POST));
+    console.log(Date.now() + ': Purchase made from ip ' + request.ip + ' data: ' + JSON.stringify(POST)); //This displays current date
 
     var contents = fs.readFileSync('./public/invoice.html', 'utf8'); //renders content from invoice.html
     response.send(eval('`' + contents + '`')); // render template string
@@ -30,7 +34,7 @@ app.post("/invoice.html", function (request, response, next) {
         str = '';
         for (i = 0; i < products.length; i++) {
             a_qty = 0;
-            if(typeof POST[`qty_text${i}`] != 'undefined') {
+            if(typeof POST[`qty_text${i}`] != 'undefined') { //this takes the quantity given in product store and renders it in invoice 
                 a_qty = POST[`qty_text${i}`];
             }
             if (a_qty > 0) {
@@ -78,6 +82,6 @@ app.all('*', function (request, response, next) {
     next();
 });
 
-app.use(express.static('./public'));
+app.use(express.static('./public')); //This retrieves all files from public file, without this files would not be accessed 
 
 var listener = app.listen(8080, () => { console.log('Server listening on port ' + listener.address().port) }); //Server will be listening from localhost:8080

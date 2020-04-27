@@ -1,4 +1,11 @@
-<script> //Followed format from Smartphone products 3 and Invoice 2
+<script> 
+/*Author Kevin De Leon Orozco.Followed format from Smartphone products 3 and Invoice 2
+Code written below displays my invoice file and is linked to products store page.
+Once quantity is given and purchased button is submitted on products store file, then this code displays products, price and quantity on invoice.
+Used an array and loop to properly match products with name, price and quantity.
+Under Doctype css style sheet was given to invoice.*/
+
+//Code below defines all of my products (objects) and defines the array. 
   //Product1 
   var product1 = {
     model:"Spiderman",  
@@ -62,7 +69,7 @@
     }
   } else {
     document.write('no form submitted');
-  } //form will not be submitted if no quantites are given
+  } //form will not be submitted if no quantites are not given
   console.log(quantities);
 </script>
 
@@ -89,16 +96,17 @@
         <th style="text-align: center;" width="54%">extended price</th>
       </tr>
       <script>
+        //Code above displays invoice table and all of its variables
         //This code requires information from products and puts the correct price
         subtotal = 0;
         for (i = 0; i < products.length; i++) {
           if (quantities[i] > 0) {
-            // product row
-            extended_price = quantities[i] * products[i].price
+            // loops the products and displays product row 
+            extended_price = quantities[i] * products[i].price //quantities of products and price are multilpied 
             subtotal += extended_price;
             document.write(`
       <tr>
-        <td width="43%">${products[i].model}</td>
+        <td width="43%">${products[i].model}</td> 
         <td align="center" width="11%">${quantities[i]}</td>
         <td width="13%">\$${products[i].price}</td>
         <td width="54%">\$${extended_price}</td>

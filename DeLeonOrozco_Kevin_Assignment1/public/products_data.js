@@ -1,4 +1,4 @@
-//Code used from Lab 13
+// AUTHOR: Kevin De Leon Orozco. Code used from Lab 13. This creates an array for my products (objects). 
 products=
 [
   {  
