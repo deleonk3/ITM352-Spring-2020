@@ -1,4 +1,4 @@
-<script>
+<script> //Code used from Smartphone Products 3 and adjusted 
     //Product1 
     var product1 = {
       model:"Spiderman",  
@@ -45,7 +45,7 @@
       image: "https://s3.thcdn.com/productimg/960/960/11357697-8244433739810840.jpg"
     };
 
-    products = [product1,product2,product3,product4,product5,product6]
+    products = [product1,product2,product3,product4,product5,product6] //Name of my array 
 </script>
     <script>
         /* Code taken from Lab 13 Ex 3c and from sample page from Assignment1*/
@@ -74,7 +74,6 @@
             for (i = 0; i < products.length; i++) {
                 if (params.has(`quantity${i}`)) {
                     a_qty = params.get(`quantity${i}`);
-                    // make textboxes sticky in case of invalid data
                     product_selection_form[`quantity${i}`].value = a_qty;
                     total_qty += a_qty; 
                     if(!isNonNegInt(a_qty)) {
@@ -83,12 +82,12 @@
                     }
                 }
             }
-            // Now respond to errors or redirect to invoice if all is ok
+            // Code responds to errors, if no errors then redirects to invoice
             if(has_errors) {
                 alert("Please enter only valid quantities!");
-            } else if(total_qty == 0) { // no quantity selections, just give a general alert
+            } else if(total_qty == 0) {
                 alert("Please select some quantities!");
-            } else { // all good to go!
+            } else { // this will redirect to invoice
                 window.location = `./invoice.html${document.location.search}`;
                 window.stop;
             }
@@ -116,7 +115,7 @@
         </header>
         <div>
             <main>
-                <script>
+                <script> // This code ensures that my products are being shown 
                     for (i = 0; i < products.length; i++) {
                         document.write(`
                             <section class="item">
@@ -136,7 +135,7 @@
             <h1>
                 Choose from Heros to Villians
             </h1>
-            <input type="submit" value="Purchase!" name="purchase_submit">
+            <input type="submit" value="Purchase!" name="purchase_submit"> 
         </footer>
     </form>
 </body>
