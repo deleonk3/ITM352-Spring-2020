@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <h1>${request.query["error"]}</h1>
+        <form action="check_login" method="POST">
+        <input type="text" name="username" size="40" placeholder="enter username" value=${request.query ['username']}><br />
+        <input type="password" name="password" size="40" placeholder="enter password"><br />
+        <input type="submit" value="Submit" id="submit">
+        </form>
+        <a href = "./register.html">New user register</a>
+        </body>
+            
+        
+    
+</body>
+</html>
+ 
