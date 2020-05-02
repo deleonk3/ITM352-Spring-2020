@@ -56,6 +56,7 @@ Page is also given a style sheet. Code for style sheet can be viewed in phead-st
 </script>
     <script>
         /* Code taken from Lab 13 Ex 3c and from sample page from Assignment1*/
+        // Code for textbox starts  here
     function isNonNegInt(q, return_errors = false) {
         errors = []; // assume no errors at first
         if(q == '') q =0; // handle blank inputs as if they are 0
@@ -64,12 +65,13 @@ Page is also given a style sheet. Code for style sheet can be viewed in phead-st
         else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Check that it is an integer, if not returns text in red color 
         return return_errors ? errors : (errors.length == 0);
     }
-
-    function checkQuantityTextbox(theTextbox) {
-        errs = isNonNegInt(theTextbox.value, true);
-        if (errs.length == 0) errs = ['You want:'];
-        if (theTextbox.value.trim() == '') errs = ['Quantity'];
+//Code used from Assignment 1 example in assignent 1 instructions 
+    function checkQuantityTextbox(theTextbox) { //checks the quantity that is put inside the text box
+        errs = isNonNegInt(theTextbox.value, true); // if no errors then continue
+        if (errs.length == 0) errs = ['You want:']; //when number is inserted in box 'you want' text will appear 
+        if (theTextbox.value.trim() == '') errs = ['Quantity']; //'Quantity' text will appear if no numbers are inserted 
         document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
+        //code for textbox ends here
     }
 
     window.onload = function () {
@@ -94,8 +96,8 @@ Page is also given a style sheet. Code for style sheet can be viewed in phead-st
                 alert("Please enter only valid quantities!");
             } else if(total_qty == 0) {
                 alert("Please select some quantities!");
-            } else { // this will redirect to invoice
-                window.location = `./login.html${document.location.search}`;
+            } else { // this will redirect to login
+                window.location = `/login.html${document.location.search}`;
                 window.stop;
             }
         }
@@ -112,6 +114,8 @@ Page is also given a style sheet. Code for style sheet can be viewed in phead-st
     <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
 
     <link href="phead-style.css" rel="stylesheet">
+
+
     
 </head>
 
