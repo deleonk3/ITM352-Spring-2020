@@ -97,7 +97,7 @@ Page is also given a style sheet. Code for style sheet can be viewed in phead-st
             } else if(total_qty == 0) {
                 alert("Please select some quantities!");
             } else { // this will redirect to login
-                window.location = `/login.html${document.location.search}`;
+                window.location = `/login${document.location.search}`;
                 window.stop;
             }
         }
