@@ -1,0 +1,68 @@
+<script>/*Author Kevin De Leon Orozco. Code written below renders my index file of Assignment1. Code structures index file and has link that sends 
+    user to store page. Code was taken from Smartphone Products1 and 3*/
+    </script>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <script src="./load_products_data.js"></script>
+<script src="./functions.js"></script> 
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Pop Head Store</title>
+        
+        
+        <style> 
+            body {text-align: center; /*this aligns the text found in the website */
+        background: lightblue;} /* This gives the website a lightblue color */
+    
+        img {
+            border: 1px solid yellow;  
+            /* Yellow border */
+            border-radius: 4px;
+            /* Rounded border */
+            padding: 5px;
+            /* Some padding */
+            width: 500px;
+            /* Set a small width */
+        }
+    
+         /* code above and below retrieved from SmartphoneProducts3*/
+    
+        /* Add a hover effect (blue shadow) */
+        img:hover {
+            box-shadow: 0 0 5px 1px black;
+        }
+        </style>
+        
+    </head>
+    <body>
+        <h1>Welcome to the ULTIMATE Pop Head Store</h1>
+        <h2>If you would like to explore our products enter our store</h2>
+        <a href="store.html"><img src="https://cdn.mos.cms.futurecdn.net/tdXj8Ei2Lt7r437fMSgi2G-1200-80.jpg"></a>
+
+        <h1>Click image to enter store!</h1>
+        <h2>know what you want?</h2>
+        
+    
+    
+        
+    </body>
+    <head>
+        <script src="./load_products_data.js"></script>
+        <script src="./functions.js"></script> 
+        </head>
+        <body>
+            Go to: <br>
+        </body>
+        </html>
+        <script>
+        i=0;
+        for(products_key in products_data) {
+            i++;
+            document.write(`<a href='./display_products.html?products_key=${products_key}'>${i}. ${products_key}<a><br>`);
+        }
+        </script>
+    </html>

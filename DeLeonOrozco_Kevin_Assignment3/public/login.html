@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style> 
+  body {text-align: center; /*this aligns the text found in the website */
+background: lightblue;} /* This gives the website a lightblue color */
+
+img {
+  border: 1px solid yellow;  
+  /* Yellow border */
+  border-radius: 4px;
+  /* Rounded border */
+  padding: 5px;
+  /* Some padding */
+  width: 200px;
+  /* Set a small width */
+}
+
+/* code above and below retrieved from SmartphoneProducts3*/
+
+/* Add a hover effect (blue shadow) */
+img:hover {
+  box-shadow: 0 0 5px 1px black;
+}
+</style>
+</head>
+<body>
+
+  <h1> Please Login to continue<h1>
+    <img src='https://i.etsystatic.com/20394804/r/il/09c922/1930801674/il_570xN.1930801674_pcpv.jpg'></a>
+    
+    <form action="check_login?${querystring.stringify(POST)}" method="POST">
+    <input type="text" name="username" size="40" placeholder="enter username"><br />
+    <input type="password" name="password" size="40" placeholder="enter password"><br />
+    <input type="submit" value="Submit" id="submit">
+    </form>
+    <a href = "./register.html">New user register</a>
+    </body>
+</html>
+
